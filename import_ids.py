@@ -15,7 +15,7 @@ def perform_import(path, auth_token):
             iters += 1
             cols = line.split(' ')
             kbase_id = cols[0]
-            refseq_id = cols[1]
+            refseq_id = cols[1].replace('_assembly', '')
             ids.append((kbase_id, refseq_id))
             if iters >= 10000:
                 request_json = ids_to_json(ids)
